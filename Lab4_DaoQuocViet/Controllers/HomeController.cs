@@ -11,11 +11,8 @@ namespace Lab4_DaoQuocViet.Controllers
     public class HomeController : Controller
     {
         MyDataDataContext data = new MyDataDataContext();
-        public ActionResult Index()
-        {
-            return View();
-        }
-        public ActionResult vw(int? page)
+
+        public ActionResult Index(int? page)
         {
             if (page == null) page = 1;
             var all_sach = (from s in data.Saches select s).OrderBy(m => m.masach);
